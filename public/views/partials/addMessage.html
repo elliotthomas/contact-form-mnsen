@@ -1,0 +1,25 @@
+<section class= "block block-skills">
+<form>
+<div class="form-group">
+<label for="nameInput">Full Name</label>
+<input ng-model= "firstName" class = "form-control name-input" id = "nameInput" type="text" placeholder="First">
+<input ng-model= "lastName" class = "form-control name-input" id = "nameInput" type="text" placeholder="Last">
+</div>
+<div class="form-group">
+<label>Contact Information</label>
+<input ng-model= "address" class = "form-control address-input" type="text" placeholder="Address">
+<input ng-model= "city" class = "form-control address-input" type="text" placeholder="City">
+<input ng-model= "state" class = "form-control address-input" type="text" placeholder="State">
+<input ng-model= "zip" class = "form-control address-input" type="text" placeholder="Zip Code">
+</div>
+<div class="form-group">
+<input ng-model= "phoneNumber" class = "form-control phone-email" type="text" placeholder="Phone Number">
+<input ng-model= "email" class = "form-control phone-email" type="email" placeholder="Email Address">
+</div>
+<div class="form-group">
+<label>Message</label>
+<textarea ng-model= "message" rows= "5" class = "form-control" type="text" placeholder="Message"></textarea>
+</div>
+<button ng-click = 'addMessage()' name="button">Submit</button>
+</form>
+</section>

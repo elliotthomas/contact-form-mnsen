@@ -1,0 +1,17 @@
+<select class="chooseRep">
+  <optgroup label="Senators">
+   <option>Mark Johnson</option>
+   <option>Paul Utke</option>
+   <option>Carrie Ruud</option>
+ </optgroup>
+ <optgroup label="Districts">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </optgroup>
+</select>
+<div class="verification-div">
+  <label class = 'verification'>Please Verify You Are Human</label>
+  <input class = 'verification' type="checkbox" ng-model= "checkboxVerify">
+  <button class="verifyButton" ng-disabled= "!checkboxVerify">Send Message to Senator</button>
+</div>
