@@ -14,6 +14,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl:'../views/partials/home.html',
       controller: 'homeController'
     })
+    .when ('/splashThankYou', {
+      templateUrl:'../views/partials/splashThankYou.html',
+      controller: 'splashThankYouController'
+    })
   .otherwise({
       redirectTo: '/home'
     });
@@ -37,12 +41,13 @@ myApp.factory('senatorFactory', function() {
 myApp.controller('homeController', ['$scope', '$http', 'senatorFactory', '$location', function ($scope, $http, senatorFactory, $location){
   console.log("IN HOME");
 
-
-  $scope.districts = [
-    {number: "1", senator: "Mark Johnson", email: "elliotnthomas@gmail.com"},
-    {number: "2", senator: "Paul Utke", email: "elliotnthomas@gmail.com"},
-    {number: "3", senator: "Carrie Ruud", email: "elliotnthomas@gmail.com"}
-]
+  $http({
+      method: 'GET',
+      url: '/getSenators'
+  }).then(function(response) {
+      console.log('Senators back from DB ->', response);
+      $scope.districts = response.data
+  }); //end http get call
 
 $scope.contactSenator = function () {
   var selectedDistrict = $scope.selectedDistrict
@@ -68,7 +73,7 @@ $location.path('/addMessage')
 
 }]); //end home controller
 
-myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', function ($scope, $http, senatorFactory){
+myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', '$location', function ($scope, $http, senatorFactory, $location){
 	console.log('In add Message controller');
 
   $scope.selectedSenator = senatorFactory.senatorInfo[1]
@@ -100,7 +105,21 @@ myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', f
     });
 
 
+    $location.path('/splashThankYou')
+
 
   }
 
 }]); //end add message controller
+
+myApp.controller('splashThankYouController', ['$scope', '$http', 'senatorFactory', '$location','$timeout', function ($scope, $http, senatorFactory, $location, $timeout){
+
+$scope.selectedSenator = senatorFactory.senatorInfo[1]
+
+$timeout(function() {
+    $location.path('/home')
+}, 3000);
+
+
+
+}]); //end splash thank you controller

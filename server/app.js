@@ -17,9 +17,11 @@ app.listen(app.get('port'), function() {
 
 //require routers
 var addMessageRouter = require ('./routes/addMessage.js');
+var getSenatorsRouter = require ('./routes/getSenators.js');
 
 //Routers
 app.use('/addMessage', addMessageRouter);
+app.use('/getSenators', getSenatorsRouter);
 
 var indexRoute = require('./routes/indexRoute');
 app.use('/', indexRoute);
