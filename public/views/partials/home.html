@@ -1,17 +1,13 @@
-<select class="chooseRep">
+<select class="chooseRep" ng-model = "selectedDistrict">
   <optgroup label="Senators">
-   <option>Mark Johnson</option>
-   <option>Paul Utke</option>
-   <option>Carrie Ruud</option>
+    <option ng-repeat = "district in districts" value = "{{district.number}}">{{district.senator}}</option>
  </optgroup>
  <optgroup label="Districts">
-   <option>1</option>
-   <option>2</option>
-   <option>3</option>
+   <option ng-repeat = "district in districts" value = "{{district.number}}">{{district.number}}</option>
  </optgroup>
 </select>
 <div class="verification-div">
   <label class = 'verification'>Please Verify You Are Human</label>
   <input class = 'verification' type="checkbox" ng-model= "checkboxVerify">
-  <button class="verifyButton" ng-disabled= "!checkboxVerify">Send Message to Senator</button>
+  <button class="verifyButton" ng-click = 'contactSenator()' ng-disabled= "!checkboxVerify">Send Message to Senator</button>
 </div>

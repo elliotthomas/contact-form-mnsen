@@ -26,11 +26,37 @@ myApp.controller('homeController', ['$scope', '$http', function ($scope, $http){
   console.log("IN HOME");
 
 
+  $scope.districts = [
+    {number: "1", senator: "Mark Johnson", email: "elliotnthomas@gmail.com"},
+    {number: "2", senator: "Paul Utke", email: "elliotnthomas@gmail.com"},
+    {number: "3", senator: "Carrie Ruud", email: "elliotnthomas@gmail.com"}
+]
+
+$scope.contactSenator = function () {
+  var selectedDistrict = $scope.selectedDistrict
+  console.log('in contact senator');
+  console.log(selectedDistrict);
+  var selectedPerson = []
+
+  $scope.districts.forEach(function(district){
+    if (district.number == selectedDistrict) {
+    selectedPerson.push(district.number)
+    selectedPerson.push(district.senator)
+    selectedPerson.push(district.email)
+  } else {
+      return
+    }
+  })
+  
+
+};//end contact senator
 
 }]); //end home controller
 
 myApp.controller('addMessageController', ['$scope', '$http', function ($scope, $http){
 	console.log('In add Message controller');
+
+
 
 
   $scope.addMessage = function () {
