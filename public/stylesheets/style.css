@@ -24,10 +24,11 @@ ELEMENT styles
 
 nav {
 width: 100%;
-height: 50px;
+height: 70px;
 padding: 0 2rem;
 text-align: center;
 position: relative;`
+display: block;
 }
 
 label {
@@ -49,6 +50,10 @@ select {
   appearance: none;
 }
 
+h1 {
+  display: inline-block;
+}
+
 h3 {
   text-align: center;
 }
@@ -68,11 +73,23 @@ CLASS styles
 }
 
 .block-skills {
-    flex-wrap: wrap;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     background-color: #fafafa;
     border: 1px solid #e0e0e0;
     border-radius: 2px;
+  }
+
+  .minnesota-logo-left {
+    float: left;
+height: 66px;
+display: inline-block;
+  }
+
+  .minnesota-logo-right {
+    float: right;
+    height: 66px;
+    display: inline-block;
+
   }
 
   .form-control {
@@ -100,7 +117,8 @@ CLASS styles
     width: 240px;
     border: 1px solid #ccc;
     display: block;
-    margin: 0 auto;  }
+    margin: 1rem auto;
+  }
 
 .verification-div {
   display: block;
@@ -116,4 +134,15 @@ CLASS styles
 .verifyButton {
   display: block;
   margin: 0 auto;
+  color: white;
+  text-align: center;
+  font-family: 'Josefin-Sans-Bold';
+}
+
+.checked {
+  background-color: #5cb85c;
+}
+
+.unchecked {
+  background-color: #d9534f;
 }

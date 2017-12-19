@@ -9,5 +9,5 @@
 <div class="verification-div">
   <label class = 'verification'>Please Verify You Are Human</label>
   <input class = 'verification' type="checkbox" ng-model= "checkboxVerify">
-  <button class="verifyButton" ng-click = 'contactSenator()' ng-disabled= "!checkboxVerify">Send Message to Senator</button>
+  <button class="verifyButton" ng-click = 'contactSenator()' ng-class = "{'checked': checkboxVerify, 'unchecked': !checkboxVerify}"ng-disabled= "!checkboxVerify">Send Message to Senator</button>
 </div>
