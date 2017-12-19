@@ -49,6 +49,10 @@ select {
   appearance: none;
 }
 
+h3 {
+  text-align: center;
+}
+
 /*
 CLASS styles
 */
@@ -60,9 +64,7 @@ CLASS styles
   }
 
 .block {
-    width: calc(100% - 80px);
     margin: 0 2rem;
-    padding: 0 0 2rem 0;
 }
 
 .block-skills {

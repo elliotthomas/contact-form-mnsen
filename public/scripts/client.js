@@ -20,9 +20,21 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
 }]); //end my app config
 
+// Factory
+myApp.factory('senatorFactory', function() {
+  var factory = {};
+  factory.senatorInfo
+
+
+
+  return factory
+
+
+}); //end factory
+
 //Controllers
 
-myApp.controller('homeController', ['$scope', '$http', function ($scope, $http){
+myApp.controller('homeController', ['$scope', '$http', 'senatorFactory', '$location', function ($scope, $http, senatorFactory, $location){
   console.log("IN HOME");
 
 
@@ -44,18 +56,23 @@ $scope.contactSenator = function () {
     selectedPerson.push(district.senator)
     selectedPerson.push(district.email)
   } else {
-      return
+    return
     }
   })
-  
+
+senatorFactory.senatorInfo = selectedPerson;
+
+$location.path('/addMessage')
 
 };//end contact senator
 
 }]); //end home controller
 
-myApp.controller('addMessageController', ['$scope', '$http', function ($scope, $http){
+myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', function ($scope, $http, senatorFactory){
 	console.log('In add Message controller');
 
+  $scope.selectedSenator = senatorFactory.senatorInfo[1]
+  console.log('senator->', $scope.selectedSenator);
 
 
 
@@ -70,7 +87,8 @@ myApp.controller('addMessageController', ['$scope', '$http', function ($scope, $
       state: $scope.state,
       zip: $scope.zip,
       email: $scope.email,
-      message: $scope.message
+      message: $scope.message,
+      senatorData: senatorFactory.senatorInfo
     };
 
     $http({

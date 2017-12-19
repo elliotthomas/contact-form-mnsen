@@ -4,7 +4,7 @@ var path = require('path');
 
 router.post('/', function(req, res){
 console.log('in add message post');
-  
+  console.log('req.body', req.body);
 
 
 
