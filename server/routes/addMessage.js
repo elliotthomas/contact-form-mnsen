@@ -1,11 +1,14 @@
+//set log status
+var verbose = false
+
 var express = require( 'express' );
 var router = express.Router();
 var path = require('path');
 var nodemailer = require('nodemailer');
 
 router.post('/', function(req, res){
-console.log('in add message post');
-  console.log('req.body', req.body);
+if (verbose) console.log('in add message post');
+if (verbose) console.log('req.body', req.body);
 
   //req.body will be sent to IT database here (no schema required)
 

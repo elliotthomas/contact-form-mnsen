@@ -3,19 +3,17 @@ FONT-FACE
 */
 
 @font-face {
-    font-family: 'Josefin-Sans';
-    src: url('../vendors/JosefinSans.woff2') format('woff2'),
-        url('../vendors/JosefinSans.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Josefin-Sans';
+  src: url('../vendors/JosefinSans.woff2') format('woff2'), url('../vendors/JosefinSans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Josefin-Sans-Bold';
-    src: url('JosefinSans-Bold.woff2') format('woff2'),
-        url('JosefinSans-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'Josefin-Sans-Bold';
+  src: url('../vendors/JosefinSans-Bold.woff2') format('woff2'), url('../vendors/JosefinSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 
 /*
@@ -23,12 +21,12 @@ ELEMENT styles
 */
 
 nav {
-width: 100%;
-height: 70px;
-padding: 0 2rem;
-text-align: center;
-position: relative;`
-display: block;
+  width: 100%;
+  height: 70px;
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  ` display: block;
 }
 
 label {
@@ -37,8 +35,8 @@ label {
 }
 
 form {
-width: calc(100% - 300px);
-margin: 0 auto;
+  width: calc(100% - 300px);
+  margin: 0 auto;
 }
 
 select::-ms-expand {
@@ -48,6 +46,7 @@ select::-ms-expand {
 select {
   -webkit-appearance: none;
   appearance: none;
+  -moz-appearance: none;
 }
 
 h1 {
@@ -61,69 +60,68 @@ h3 {
 /*
 CLASS styles
 */
+
 .container {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1400px;
-    font-family: 'Josefin-Sans', sans-serif;
-  }
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  font-family: 'Josefin-Sans', sans-serif;
+}
 
 .block {
-    margin: 0 2rem;
+  margin: 0 2rem;
 }
 
 .block-skills {
-    padding: 1rem 1rem 2rem 1rem;
-    background-color: #fafafa;
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-  }
+  padding: 1rem 1rem 2rem 1rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+}
 
-  .minnesota-logo-left {
-    float: left;
-height: 66px;
-display: inline-block;
-  }
+.minnesota-logo-left {
+  float: left;
+  height: 66px;
+  display: inline-block;
+}
 
-  .minnesota-logo-right {
-    float: right;
-    height: 66px;
-    display: inline-block;
+.minnesota-logo-right {
+  float: right;
+  height: 66px;
+  display: inline-block;
+}
 
-  }
+.form-control {
+  border-radius: 0px;
+}
 
-  .form-control {
-    border-radius: 0px;
-  }
+.name-input {
+  display: inline-block;
+  width: 49.5%;
+}
 
-  .name-input {
-    display: inline-block;
-    width: 49.5%;
-  }
+.phone-email {
+  display: inline-block;
+  width: 49.5%;
+}
 
-  .phone-email {
-    display: inline-block;
-    width: 49.5%;
-  }
+.address-input {
+  display: inline-block;
+  width: 24.5%;
+}
 
-  .address-input {
-    display: inline-block;
-    width: 24.5%;
-  }
-
-  .chooseRep {
-    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
-    height: 34px;
-    width: 240px;
-    border: 1px solid #ccc;
-    display: block;
-    margin: 1rem auto;
-  }
+.chooseRep {
+  background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  height: 34px;
+  width: 240px;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 1rem auto;
+}
 
 .verification-div {
   display: block;
   text-align: center;
-
 }
 
 .verification {

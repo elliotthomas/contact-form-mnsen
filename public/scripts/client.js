@@ -1,4 +1,7 @@
-console.log('IN Client JS');
+//set log status
+var verbose = false
+
+if (verbose) console.log('IN Client JS');
 
 //Declare App
 var myApp = angular.module('myApp', ['ngRoute']);
@@ -6,19 +9,19 @@ var myApp = angular.module('myApp', ['ngRoute']);
 //MyApp Config
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-  .when('/addMessage', {
-    templateUrl:'../views/partials/addMessage.html',
-    controller: 'addMessageController'
+    .when('/addMessage', {
+      templateUrl: '../views/partials/addMessage.html',
+      controller: 'addMessageController'
     })
-  .when('/home', {
-      templateUrl:'../views/partials/home.html',
+    .when('/home', {
+      templateUrl: '../views/partials/home.html',
       controller: 'homeController'
     })
-    .when ('/splashThankYou', {
-      templateUrl:'../views/partials/splashThankYou.html',
+    .when('/splashThankYou', {
+      templateUrl: '../views/partials/splashThankYou.html',
       controller: 'splashThankYouController'
     })
-  .otherwise({
+    .otherwise({
       redirectTo: '/home'
     });
 
@@ -38,50 +41,50 @@ myApp.factory('senatorFactory', function() {
 
 //Controllers
 
-myApp.controller('homeController', ['$scope', '$http', 'senatorFactory', '$location', function ($scope, $http, senatorFactory, $location){
-  console.log("IN HOME");
+myApp.controller('homeController', ['$scope', '$http', 'senatorFactory', '$location', function($scope, $http, senatorFactory, $location) {
+  if (verbose) console.log("IN HOME");
 
   $http({
-      method: 'GET',
-      url: '/getSenators'
+    method: 'GET',
+    url: '/getSenators'
   }).then(function(response) {
-      console.log('Senators back from DB ->', response);
-      $scope.districts = response.data
+    if (verbose) console.log('Senators back from DB ->', response);
+    $scope.districts = response.data
   }); //end http get call
 
-$scope.contactSenator = function () {
-  var selectedDistrict = $scope.selectedDistrict
-  console.log('in contact senator');
-  console.log(selectedDistrict);
-  var selectedPerson = []
+  $scope.contactSenator = function() {
+    var selectedDistrict = $scope.selectedDistrict
+    if (verbose) console.log('in contact senator');
+    if (verbose) console.log(selectedDistrict);
+    var selectedPerson = []
 
-  $scope.districts.forEach(function(district){
-    if (district.number == selectedDistrict) {
-    selectedPerson.push(district.number)
-    selectedPerson.push(district.senator)
-    selectedPerson.push(district.email)
-  } else {
-    return
-    }
-  })
+    $scope.districts.forEach(function(district) {
+      if (district.number == selectedDistrict) {
+        selectedPerson.push(district.number)
+        selectedPerson.push(district.senator)
+        selectedPerson.push(district.email)
+      } else {
+        return
+      }
+    })
 
-senatorFactory.senatorInfo = selectedPerson;
+    senatorFactory.senatorInfo = selectedPerson;
 
-$location.path('/addMessage')
+    $location.path('/addMessage')
 
-};//end contact senator
+  }; //end contact senator
 
 }]); //end home controller
 
-myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', '$location', function ($scope, $http, senatorFactory, $location){
-	console.log('In add Message controller');
+myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', '$location', function($scope, $http, senatorFactory, $location) {
+  if (verbose) console.log('In add Message controller');
 
   $scope.selectedSenator = senatorFactory.senatorInfo[1]
-  console.log('senator->', $scope.selectedSenator);
+  if (verbose) console.log('senator->', $scope.selectedSenator);
 
 
 
-  $scope.addMessage = function () {
+  $scope.addMessage = function() {
 
     var contactForm = {
       firstName: $scope.firstName,
@@ -97,11 +100,11 @@ myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', '
     };
 
     $http({
-        method: 'POST',
-        url: '/addMessage',
-        data: contactForm
+      method: 'POST',
+      url: '/addMessage',
+      data: contactForm
     }).then(function(response) {
-        console.log('response ->', response);
+      if (verbose) console.log('response ->', response);
     });
 
 
@@ -112,13 +115,13 @@ myApp.controller('addMessageController', ['$scope', '$http', 'senatorFactory', '
 
 }]); //end add message controller
 
-myApp.controller('splashThankYouController', ['$scope', '$http', 'senatorFactory', '$location','$timeout', function ($scope, $http, senatorFactory, $location, $timeout){
+myApp.controller('splashThankYouController', ['$scope', '$http', 'senatorFactory', '$location', '$timeout', function($scope, $http, senatorFactory, $location, $timeout) {
 
-$scope.selectedSenator = senatorFactory.senatorInfo[1]
+  $scope.selectedSenator = senatorFactory.senatorInfo[1]
 
-$timeout(function() {
+  $timeout(function() {
     $location.path('/home')
-}, 3000);
+  }, 3000);
 
 
 

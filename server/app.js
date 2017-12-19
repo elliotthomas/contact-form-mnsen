@@ -5,7 +5,9 @@ var bodyParser = require('body-parser');
 
 //middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static('public'));
 
 
@@ -16,8 +18,8 @@ app.listen(app.get('port'), function() {
 });
 
 //require routers
-var addMessageRouter = require ('./routes/addMessage.js');
-var getSenatorsRouter = require ('./routes/getSenators.js');
+var addMessageRouter = require('./routes/addMessage.js');
+var getSenatorsRouter = require('./routes/getSenators.js');
 
 //Routers
 app.use('/addMessage', addMessageRouter);
